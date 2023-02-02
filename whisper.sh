@@ -1,6 +1,6 @@
 #!/bin/bash
 # the Whisper model to use
-model="tiny.en"
+model="base.en"
 
 # export the path to the whisper.cpp repo in the WHISPER_CPP_HOME env variable
 # https://github.com/ggerganov/whisper.cpp
@@ -19,7 +19,5 @@ fi
 
 tmpFile=/tmp/whisper.text
 # fine-tune the parameters according to your machine specs
-./stream -t 3 -m models/"ggml-${model}.bin" --step 5000 --length 1000 --keep 200 -f "${tmpFile}" 2> /dev/null
+./stream -t 8 -m models/"ggml-${model}.bin" --step 3000 --length 1000 --keep 200 -f "${tmpFile}" 2> /dev/null
 exit
-
-
