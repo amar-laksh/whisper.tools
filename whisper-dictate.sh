@@ -9,10 +9,8 @@ while  true ; do
     currentText=$($execPrefix/tail -n 1 /tmp/whisper.text | $execPrefix/tr -d '\n' | $execPrefix/rg -v  '\[|\(')
     if [ "$currentText" != "" ] && [ "$currentText" != "$lastText" ]
     then
-        "$localExecPrefix"/ydotool type "${currentText}"; "$execPrefix"/sleep 1; "$localExecPrefix"/ydotool key 28:1 28:0
+        "$localExecPrefix"/ydotool type "${currentText}"; "$execPrefix"/sleep 0.2; "$localExecPrefix"/ydotool key 28:1 28:0
     fi
     lastText=$currentText
 done
-
-
 
